@@ -5,14 +5,16 @@ import LottieView from 'lottie-react-native';
 import * as Speech from 'expo-speech';
 
 const App = () => {
+  
   const sayWelcome = () => {
-    Speech.speak("Welcome");
+    Speech.speak("Welcome to Co-Pilot B9. I'll help you stay alert by letting you know when we reach high accident areas.");
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.containerHeader}>
         <Text style={styles.header}>Welcome to Co-Pilot B9</Text>
+        <Text style={styles.paragraph}>I'll help you stay alert by letting you know when we reach high accident areas.</Text>
       </View>
       <View style={styles.lottieView}>
         <LottieView
@@ -30,11 +32,8 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    // flex: 1,
     backgroundColor: '#fff',
     paddingTop: 50
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   containerHeader: {
     display: "flex",
@@ -42,8 +41,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "30%",
     width: "100%",
-    borderColor: "black",
-    borderWidth: 5
   },
   header: {
     fontSize: 20,
@@ -56,8 +53,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "60%",
     width: "100%",
-    borderColor: "red",
-    borderWidth: 5
+  },
+  paragraph: {
+    padding: 20
   }
 });
 
