@@ -2,26 +2,48 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import LottieView from 'lottie-react-native';
+import * as Speech from 'expo-speech';
 
-export default function App() {
+const App = () => {
+  const sayWelcome = () => {
+    Speech.speak("Welcome");
+  }
+
   return (
     <View style={styles.container}>
-      <LottieView
-        style={styles.lottiView}
-        source={require('./assets/warning2.json')}
-        autoPlay
-        loop
-      />
+      <View style={styles.containerHeader}>
+        <Text style={styles.header}>Welcome to Co-Pilot B9</Text>
+      </View>
+      <View style={styles.lottieView}>
+        <LottieView
+          style={styles.lottiView}
+          source={require('./assets/car2.json')}
+          autoPlay
+          loop
+        />
+      </View>
+      {sayWelcome()}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: "flex",
+    // flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 50
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  containerHeader: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "30%",
+    width: "100%",
+    borderColor: "black",
+    borderWidth: 5
   },
   header: {
     fontSize: 20,
@@ -29,6 +51,14 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   lottieView: {
-    flex: 1
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "60%",
+    width: "100%",
+    borderColor: "red",
+    borderWidth: 5
   }
 });
+
+export default App;
